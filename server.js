@@ -8,6 +8,7 @@ const app = express();
 const expressLayouts = require("express-ejs-layouts");
 const indexRouter = require("./routes/index");
 const authorRouter = require("./routes/authors");
+const bookRouter = require("./routes/books");
 require("./db/conn");
 
 app.set("view engine", "ejs");
@@ -23,6 +24,7 @@ app.use(express.static("public"));
 
 app.use("/", indexRouter);
 app.use("/authors", authorRouter);
+app.use("/books", bookRouter);
 
 app.listen(process.env.PORT || 3000, () => {
     console.log("server started on the port 3000");
